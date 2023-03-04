@@ -1,0 +1,21 @@
+#Facebook {
+    animation-name: Facebook;
+    animation-duration: 4s;
+  }
+#palantir {
+    animation-name: palantir;
+    animation-duration: 4s;
+  }
+  img{
+      width: 200px;
+      height: 100px;
+  }
+  @keyframes Facebook {
+    from {border: 2px solid red;}
+    to {border: 10px solid blue;}
+  }
+  @keyframes palantir {
+    from {border: 2px solid red;}
+    to {border: 10px solid blue;}
+  }
+  
