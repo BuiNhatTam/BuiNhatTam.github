@@ -1,5 +1,0 @@
- #img{
-        background-image: url(..//img/h1.jpg),url(..//img/h2.jpg);
-        background-position: right bottom, left top;
-        background-repeat: no-repeat, repeat;
-    }
