@@ -1,0 +1,9 @@
+.c1{
+    background-color: #8d1c11;
+    overflow: hidden;
+}
+.c1 li{
+    float: left;
+    list-style: none;
+    padding: 5px 10px;
+}
