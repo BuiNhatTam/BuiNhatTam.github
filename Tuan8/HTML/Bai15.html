@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let email;
+        email = prompt("Nhập Email: ", "user@gmail.com");
+        let patns = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        if (!patns.test(email)) {
+            alert("Email không hợp lệ")
+        } else {
+            alert("Email hợp lệ")
+        }
+    </script>
+
+</body>
+
+</html>

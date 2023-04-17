@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        function checkFirstLetter(str) {
+            // Kiểm tra xem chuỗi có rỗng hay không
+            if (str === "") {
+                alert("Chuỗi rỗng!");
+                return;
+            }
+            // Lấy ký tự đầu tiên của chuỗi
+            const firstLetter = str.charAt(0);
+            // Kiểm tra xem ký tự đầu tiên có phải là ký tự in hoa hay không
+            if (firstLetter === firstLetter.toUpperCase()) {
+                alert("Ký tự đầu tiên là ký tự in hoa");
+            } else {
+                alert("Ký tự đầu tiên không phải là ký tự in hoa");
+            }
+        }
+        var chuoi;
+        chuoi = prompt("Nhập chuỗi: ", "");
+        checkFirstLetter(chuoi);
+    </script>
+</body>
+
+</html>

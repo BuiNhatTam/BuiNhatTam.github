@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        var time = 1000;
+        function changeImg() {
+            var arr = new Array();
+            var str = "../IMG/";
+            arr[0] = str + "flower1.png";
+            arr[1] = str + "flower2.png";
+            arr[2] = str + "flower3.png";
+            var i = Math.round(Math.random() * arr.length);
+            document.getElementById("image").src = arr[i];
+            setTimeout("changeImg()", time);
+        }
+        function stopChangeImg() {
+            clearTimeout(time);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content" class="container">
+        <img src="../IMG/flower1.png" alt="anh" id="image">
+        <div class="btn">
+            <input type="button" value="Play" id="btn-play" onclick="changeImg();">
+            <input type="button" value="Stop" id="btn-stop" onclick="stopChangeImg();">
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+
+</html>

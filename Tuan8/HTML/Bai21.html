@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script src="../JS/jquery-3.6.4.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script>
+        function tinhTien() {
+            var idGia = [];
+            var idSL = [];
+            var sum = 0;
+
+            idGia[0] = "gia-1";
+            idGia[1] = "gia-2";
+            idGia[2] = "gia-3";
+            idGia[3] = "gia-4";
+            idGia[4] = "gia-5";
+            idSL[0] = "sl-1";
+            idSL[1] = "sl-2";
+            idSL[2] = "sl-3";
+            idSL[3] = "sl-4";
+            idSL[4] = "sl-5";
+
+            for (var i = 0; i < 5; i++) {
+                var gia = document.getElementById(idGia[i]).value;
+                var sl = document.getElementById(idSL[i]).value;
+                sum += gia * sl;
+            }
+            document.getElementById("thanhTien").value = sum;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <table class=" table table-bordered">
+            <tr>
+                <th>STT</th>
+                <th>Hình Ảnh</th>
+                <th>Giá</th>
+                <th>Số Lượng</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="../IMG/h1.png" alt="anh1" /></td>
+                <td><input type="number" class="" id="gia-1" value="20000" disabled="disabled" /></td>
+                <td><input type="number" class="" id="sl-1" min="0" value="0" onblur="tinhTien();" /></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="../IMG/h2.png" alt="anh2" /></td>
+                <td><input type="number" class="" id="gia-2" value="40000" disabled="disabled" /></td>
+                <td><input type="number" class="" id="sl-2" min="0" value="0" onblur="tinhTien();" /></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="../IMG/h3.png" alt="anh3" /></td>
+                <td><input type="number" class="" id="gia-3" value="30000" disabled="disabled" /></td>
+                <td><input type="number" class="" id="sl-3" min="0" value="0" onblur="tinhTien();" /></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><img src="../IMG/h4.png" alt="anh4" /></td>
+                <td><input type="number" class="" id="gia-4" value="50000" disabled="disabled" /></td>
+                <td><input type="number" class="" id="sl-4" min="0" value="0" onblur="tinhTien();" /></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><img src="../IMG/h5.png" alt="anh5" /></td>
+                <td><input type="number" class="" id="gia-5" value="30000" disabled="disabled" /></td>
+                <td><input type="number" class="" id="sl-5" min="0" value="0" onblur="tinhTien();" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Tổng thành tiền</td>
+                <td><input type="number" class="" id="thanhTien" min="0" value="0" disabled="disabled" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script src="../JS/jquery-3.6.4.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+
+    <script>
+        function ktraHoTen() {
+            let hoten = document.getElementById("txthoten").value;
+            let pantten = /^([A-Z]{1}[a-z]+\s+)+([A-Z]{1}[a-z]+)$/;
+            if (pantten.test(hoten)) {
+                document.getElementById('erhoten').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('erhoten').innerHTML = "Tên không hợp lệ";
+                return false;
+            }
+        }
+        function ketQua() {
+            if (ktraHoTen()) {
+                let hoten = document.getElementById("txthoten").value;
+                let lop = document.getElementById("slclop").value;
+                let mon = document.getElementById("slcmh").value;
+
+                let radios = document.getElementsByName('rdloai');
+                let loai;
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        loai = radios[i].value;
+                    }
+                }
+                let row = "<tr><td>" + hoten + "</td><td>" + lop + "</td><td>" + mon + "</td><td>" + loai + "</td></tr>"
+                document.getElementById("tbl").innerHTML += row;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container"><br>
+        <form action="">
+            <div class="row form-group">
+                <label for="" class="col-2 text-left">Họ tên: </label>
+                <div class="col-10">
+                    <input type="text" class="form-control" id="txthoten" onblur="ktraHoTen();">
+                    <span id="erhoten">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-2  text-left">Lớp: </label>
+                <div class="col-10">
+                    <select name="" id="slclop" class="form-control">
+                        <option value="Đại học kỹ thuật phần mềm 9A">Đại học kỹ thuật phần mềm 9A</option>
+                        <option value="Đại học kỹ thuật phần mềm 9B">Đại học kỹ thuật phần mềm 9B</option>
+                        <option value="Đại học kỹ thuật phần mềm 9C">Đại học kỹ thuật phần mềm 9C</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-2  text-left">Môn học: </label>
+                <div class="col-10">
+                    <select name="" id="slcmh" class="form-control">
+                        <option value="Lập trình hướng đối tượng">Lập trình hướng đối tượng</option>
+                        <option value="Phân tích thiết kế hệ thống">Phân tích thiết kế hệ thống</option>
+                        <option value="Hệ thống và công nghệ web">Hệ thống và công nghệ web</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-2 text-left">Loại: </label>
+                <div class="col-10">
+                    <label for=""><input type="radio" name="rdloai" id="" value="Lý thuyết"> Lý thuyết</label>
+                    <label for=""><input type="radio" name="rdloai" id="" value="Thực hành"> Thực hành</label>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-6 text-center">
+                    <input type="button" class="btn btn-dark" value="Đăng ký" onclick="ketQua();">
+                </div>
+            </div>
+            <table class="table table-bordered-m3" id="tbl">
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Lớp</th>
+                    <th>Môn học</th>
+                    <th>Loại</th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title>title>
+</head>
+<body>
+    <script>
+        let credit;
+        credit = prompt("Nhập thẻ credit: ", "");
+        let patns = /^\d{4}-\d{4}-\d{4}-\d{4}$/
+        if (!patns.test(credit)) {
+            alert("Credit sai!!! ((định dạng của credit card: 9999-9999-9999-9999)) ")
+        } else {
+            alert("Thẻ credit đúng định dạng!!! ")
+        }
+    </script>
+</body>
+</html>

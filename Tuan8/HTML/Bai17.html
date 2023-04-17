@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script src="../JS/jquery-3.6.4.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script>
+        function kTraTenDN() {
+            let ten = document.getElementById('txttendn').value;
+            let patten = /^\w{3,}$/; //\w=[A-Za-z0-9_]
+            if (patten.test(ten)) {
+                document.getElementById('ertendn').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('ertendn').innerHTML = "Tên sai!!!";
+                return false;
+            }
+        }
+
+        function ktMK() {
+            let mk = document.getElementById('txtmk').value;
+            let pantten = /^[a-z0-9_-]{6,18}$/;
+            if (pantten.test(mk)) {
+                document.getElementById('ermk').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('ermk').innerHTML = "mật khẩu từ 6 đến 18 chữ!!!";
+                return false;
+            }
+        }
+
+        function ktLaiMK() {
+            let mk, mk2;
+            mk = document.getElementById('txtmk').value;
+            mk2 = document.getElementById('txtmk2').value;
+            if (mk == mk2) {
+                document.getElementById('ermk2').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('ermk2').innerHTML = "Mật khẩu không trùng";
+                return false;
+            }
+        }
+        function ktraHoTen() {
+            let hoten = document.getElementById("txthoten").value;
+            let pantten = /^([A-Z]{1}[a-z]+\s+)+([A-Z]{1}[a-z]+)$/;
+            if (pantten.test(hoten)) {
+                document.getElementById('erhoten').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('erhoten').innerHTML = "Chữ cái đầu phải viết Hoa";
+                return false;
+            }
+        }
+
+        function ktNgaySinh() {
+            let ns = document.getElementById('datens').value; //string
+            ns = new Date(ns);
+            let namht = new Date();
+            let tuoi = namht.getFullYear() - ns.getFullYear();
+            if (tuoi < 18) {
+                document.getElementById('erns').innerHTML = "Tuoi phai tren 18"
+                return false;
+            } else {
+                document.getElementById('erns').innerHTML = "*";
+                return true;
+            }
+        }
+
+        function ktEmail() {
+            let email = document.getElementById('txtemail').value;
+            let pantten = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+            if (pantten.test(email)) {
+                document.getElementById('ermail').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('ermail').innerHTML = "Email không đúng định dạng!!!";
+                return false;
+            }
+        }
+
+        function ktEmpty() {
+            let empty = document.getElementById("txtempty").value;
+            if (empty != "") {
+                document.getElementById('erempty').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('erempty').innerHTML = "Địa chỉ không được để trống!!!";
+                return false;
+            }
+
+        } function ktraSDT() {
+            let sdt = document.getElementById("txtsdt").value;
+            let pantten = /^(\d{10})$/
+            if (pantten.test(sdt)) {
+                document.getElementById('ersdt').innerHTML = "*";
+                return true;
+            } else {
+                document.getElementById('ersdt').innerHTML = "Số điện thoại gồm 10 chữ số!!!";
+                return false;
+            }
+        }
+        function DKthanhCong() {
+            if (kTraTenDN() && ktMK() && ktLaiMK() && ktraHoTen() && ktNgaySinh() && ktEmpty() && ktraSDT() && ktEmail()) {
+                alert("Đăng ký thành công");
+            } else
+                alert("Đăng ký thất bại");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h1 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h1>
+        <form action="">
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Tên đăng nhập: </label>
+                <div class="col-9">
+                    <input type="text" placeholder="Nhập vào tên đăng nhập" class="form-control" id="txttendn"
+                        onblur="kTraTenDN();">
+                    <span id="ertendn">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Mật khẩu: </label>
+                <div class="col-9">
+                    <input type="password" placeholder="Nhập vào mật khẩu: " class="form-control" id='txtmk'
+                        onblur="ktMK();">
+                    <span id="ermk">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Nhập lại mật khẩu: </label>
+                <div class="col-9">
+                    <input type="password" placeholder="Nhập vào xác nhận mật khẩu: " class="form-control" id='txtmk2'
+                        onblur="ktLaiMK();">
+                    <span id="ermk2">*</span>
+                </div>
+            </div>
+            <h3 class="text-center">THÔNG TIN CÁ NHÂN</h3>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Họ và tên: </label>
+                <div class="col-9">
+                    <input type="text" placeholder="Nhập vào họ tên (bắt buộc nhập) " class="form-control" id="txthoten"
+                        onblur="ktraHoTen();">
+                    <span id="erhoten">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Ngày sinh: </label>
+                <div class="col-9">
+                    <input type="date" class="form-control" id='datens' onblur="ktNgaySinh()">
+                    <span id="erns">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Giới tính: </label>
+                <div class="col-9">
+                    <input type="radio" name="gt "> Nam
+                    <input type="radio" name="gt "> Nữ
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Địa chỉ: </label>
+                <div class="col-9">
+                    <input type="text" placeholder="Nhập vào địa chỉ " class="form-control" id="txtempty"
+                        onblur="ktEmpty();">
+                    <span id="erempty">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Điện thoại: </label>
+                <div class="col-9">
+                    <input type="text" placeholder="Nhập vào số điện thoại (9-10 số)" class="form-control" id="txtsdt"
+                        onblur="ktraSDT();">
+                    <span id="ersdt">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="" class="col-3 text-right">Email: </label>
+                <div class="col-9">
+                    <input type="text" placeholder="Nhập vào Email cá nhân theo dạng ten@tencongty.com"
+                        class="form-control" id="txtemail" onblur="ktEmail();">
+                    <span id="ermail">*</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-12 text-center">
+                    <input type="button" class="btn btn-dark" value="Đăng ký " onclick="DKthanhCong();">
+                    <input type="button" class="btn btn-dark" value="Hủy ">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

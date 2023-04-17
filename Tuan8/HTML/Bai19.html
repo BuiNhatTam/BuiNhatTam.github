@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        function set_background() {
+            var docBody = document.getElementsByTagName("body")[0];
+            var myBodyElements = docBody.getElementsByTagName("p");
+            var myp1 = myBodyElements[0];
+            myp1.style.background = "rgb(255, 0, 0)";
+
+            var myp2 = myBodyElements[1];
+            myp2.style.background = "rgb(255, 255, 0)";
+        }
+    </script>
+</head>
+
+<body onclick="set_background();">
+    <p id="text">click here</p>
+    <p id="text">click here</p>
+    <p id="text">click here</p>
+</body>
+
+</html>
